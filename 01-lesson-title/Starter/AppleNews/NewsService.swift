@@ -34,7 +34,6 @@ import Foundation
 import OSLog
 
 enum NewsServiceError: Error {
-  case malformedURL
   case networkError
   case serverResponseError
   case resultParsingError
@@ -52,16 +51,10 @@ class NewsAPIService: NewsService {
   }
 
   static let apiKey = "a9a679fe153444c2adb808c6105cb0c4"
-  static let newsURL = URL(string: "https://newsapi.org/v2/everything?q=apple&apiKey=\(apiKey)") ?? URL(string: "")
+  static let newsURL = URL(string: "https://newsapi.org/v2/everything?q=apple&apiKey=\(apiKey)")!
 
   func latestNews(_ handler: @escaping (Result<[Article], NewsServiceError>) -> Void) {
-    guard let url = Self.newsURL else {
-      Logger.main.error("Malformed URL!)")
-      handler(.failure(.malformedURL))
-      return
-    }
-
-    let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+    let task = URLSession.shared.dataTask(with: URLRequest(url: Self.newsURL)) { data, response, error in
       if let error {
         Logger.main.error("Network request failed with: \(error.localizedDescription)")
         handler(.failure(.networkError))
@@ -105,13 +98,14 @@ class MockNewsService: NewsService {
   func latestNews(_ handler: @escaping (Result<[Article], NewsServiceError>) -> Void) {
     let articles = [
       Article(
-        author: "Author",
-        title: "Lorem Ipsum",
-        // swiftlint:disable line_length
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...",
-        // swiftlint:enable line_length
-        urlToImage: nil,
-        url: "https://apple.com")
+        title: "Author",
+        url: "Lorem Ipsum",
+        author: """
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...
+        """,
+        description: nil,
+        urlToImage: "https://apple.com")
     ]
     handler(.success(articles))
   }

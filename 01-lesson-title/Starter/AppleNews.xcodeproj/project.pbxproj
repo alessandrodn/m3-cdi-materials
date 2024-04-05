@@ -13,7 +13,7 @@
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
 		D2D8937B2BB6A7440048B07B /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8937A2BB6A7440048B07B /* NewsService.swift */; };
-		D2D8937D2BB6A8130048B07B /* ArticleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8937C2BB6A8130048B07B /* ArticleModel.swift */; };
+		D2D8937D2BB6A8130048B07B /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8937C2BB6A8130048B07B /* Article.swift */; };
 		D2D8937F2BB6B0060048B07B /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D8937E2BB6B0060048B07B /* NewsViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,7 +26,7 @@
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2D8937A2BB6A7440048B07B /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsService.swift; sourceTree = "<group>"; };
-		D2D8937C2BB6A8130048B07B /* ArticleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleModel.swift; sourceTree = "<group>"; };
+		D2D8937C2BB6A8130048B07B /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		D2D8937E2BB6B0060048B07B /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				1839F4AF25190F2A00BB00F1 /* AppMain.swift */,
-				D2D8937C2BB6A8130048B07B /* ArticleModel.swift */,
+				D2D8937C2BB6A8130048B07B /* Article.swift */,
 				D2D8937A2BB6A7440048B07B /* NewsService.swift */,
 				D2D8937E2BB6B0060048B07B /* NewsViewModel.swift */,
 				18D775C422AD944300AE281E /* NewsView.swift */,
@@ -90,7 +90,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18D775D122AD944400AE281E /* Build configuration list for PBXNativeTarget "AppleNews" */;
 			buildPhases = (
-				181FE31D248EA6C900A180EA /* SwiftLint */,
 				18D775B922AD944300AE281E /* Sources */,
 				18D775BA22AD944300AE281E /* Frameworks */,
 				18D775BB22AD944300AE281E /* Resources */,
@@ -151,28 +150,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		181FE31D248EA6C900A180EA /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=/opt/homebrew/bin:$PATH\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		18D775B922AD944300AE281E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -181,7 +158,7 @@
 				18D775C522AD944300AE281E /* NewsView.swift in Sources */,
 				D2D8937B2BB6A7440048B07B /* NewsService.swift in Sources */,
 				D2D8937F2BB6B0060048B07B /* NewsViewModel.swift in Sources */,
-				D2D8937D2BB6A8130048B07B /* ArticleModel.swift in Sources */,
+				D2D8937D2BB6A8130048B07B /* Article.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,7 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AppleNews/Preview Content\"";
-				DEVELOPMENT_TEAM = BXEVY9VNBG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AppleNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -330,7 +307,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.news.apple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kodeco.AppleNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -343,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"AppleNews/Preview Content\"";
-				DEVELOPMENT_TEAM = BXEVY9VNBG;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = AppleNews/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -351,7 +328,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.news.apple;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kodeco.AppleNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
