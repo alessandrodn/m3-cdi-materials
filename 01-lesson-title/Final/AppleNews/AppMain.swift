@@ -46,7 +46,5 @@ struct AppMain: App {
 }
 
 extension Logger {
-  private static let newsApp = Bundle.main.bundleIdentifier ?? "app.news.apple"
-
-  static let main = Logger(subsystem: newsApp, category: "main")
+  static let main = Logger(subsystem: Bundle.main.bundleIdentifier!, category: "main")
 }

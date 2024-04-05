@@ -34,7 +34,6 @@ import Foundation
 import OSLog
 
 enum NewsServiceError: Error {
-  case malformedURL
   case networkError
   case serverResponseError
   case resultParsingError
@@ -52,15 +51,10 @@ class NewsAPIService: NewsService {
   }
 
   static let apiKey = "a9a679fe153444c2adb808c6105cb0c4"
-  static let newsURL = URL(string: "https://newsapi.org/v2/everything?q=apple&apiKey=\(apiKey)") ?? URL(string: "")
+  static let newsURL = URL(string: "https://newsapi.org/v2/everything?q=apple&apiKey=\(apiKey)")!
 
   func latestNews() async throws -> [Article] {
-    guard let url = Self.newsURL else {
-      Logger.main.error("Malformed URL!)")
-      throw NewsServiceError.malformedURL
-    }
-
-    let (data, response) = try await URLSession.shared.data(from: url)
+    let (data, response) = try await URLSession.shared.data(from: Self.newsURL)
 
     guard let httpResponse = response as? HTTPURLResponse, httpResponse.isOK else {
       Logger.main.error("Network response error")

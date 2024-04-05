@@ -33,21 +33,21 @@
 import Foundation
 
 struct Article: Codable {
-  let author: String?
   let title: String
+  let url: String
+  let author: String?
   let description: String?
   let urlToImage: String?
-  let url: String
   let publishedAt: Date?
 
   static let sample = Article(
-    author: "Author",
-    title: "Lorem Ipsum",
-    // swiftlint:disable line_length
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...",
-    // swiftlint:enable line_length
-    urlToImage: nil,
-    url: "https://apple.com",
+    title: "Author",
+    url: "Lorem Ipsum",
+    author: """
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...",
+""",
+    description: nil,
+    urlToImage: "https://apple.com",
     publishedAt: Date()
   )
 }

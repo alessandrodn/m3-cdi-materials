@@ -55,12 +55,11 @@ struct NewsView: View {
         await newsViewModel.fetchLatestNews()
       }
     }
-      .overlay {
-        if isLoading {
-          ProgressView()
-        }
+    .overlay {
+      if isLoading {
+        ProgressView()
       }
-    .padding()
+    }
     .task {
       isLoading = true
       await newsViewModel.fetchLatestNews()
